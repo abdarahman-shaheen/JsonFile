@@ -7,11 +7,8 @@ namespace JsonFile
         static void Main(string[] args)
         {
           string jsonFilePath = "../../../../data.json";
-            string jsonData = File.ReadAllText(jsonFilePath);
-
-   
-            var rootObject = JsonConvert.DeserializeObject<Root>(jsonData);
-
+          string jsonData = File.ReadAllText(jsonFilePath);
+          var rootObject = JsonConvert.DeserializeObject<Root>(jsonData);
             IEnumerable<string> neighborhoods = rootObject.features.Select(f => f.properties.neighborhood);
            
             Console.WriteLine("All neighborhoods:");
